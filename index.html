@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Interativa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button id="toggleDark">🌙</button>
+        <section class="login" id="loginSection">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginNome" placeholder="Nome" required>
+                <input type="password" id="loginSenha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </section>
+
+        <section id="painel" style="display:none;">
+            <button id="logoutBtn">Sair</button>
+            <div class="tabs">
+                <button class="tabBtn" onclick="showTab('cliente')">Cliente</button>
+                <button class="tabBtn" onclick="showTab('gestora')">Gestora</button>
+            </div>
+
+            <div id="cliente" class="tab">
+                <h3>Bem-vindo, Cliente!</h3>
+                <form id="frequenciaForm">
+                    <label>Registrar Frequência:</label>
+                    <input type="datetime-local" id="dataHoraFreq">
+                    <button type="submit">Registrar</button>
+                </form>
+                <canvas id="graficoFrequencia" width="400" height="200"></canvas>
+            </div>
+
+            <div id="gestora" class="tab">
+                <h3>Painel da Gestora</h3>
+                <form id="cadastroClienteForm">
+                    <input type="text" id="nomeCliente" placeholder="Nome do Cliente" required>
+                    <input type="date" id="dataMatricula" required>
+                    <button type="submit">Cadastrar Cliente</button>
+                </form>
+                <ul id="listaClientes"></ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
